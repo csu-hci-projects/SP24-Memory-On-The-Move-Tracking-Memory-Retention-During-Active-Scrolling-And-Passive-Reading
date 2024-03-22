@@ -126,11 +126,88 @@ class MemoryGame:
             self.reveal_boxes(boxGroup)
             self.cover_boxes(boxGroup)
 
+    # Converting to pixel coordinates to box coordinates
+    def box_pixel(self, x, y):
+        for x_box in range(self.border_width):
+            for y_box in range(self.border_height):
+                left, top = self.lef_top_coord(x_box, y_box)
+                box_Rect = pygame.Rect(left, top, self.box_size, self.box_size)
+                if box_Rect.collidepoint(x, y):
+                    return (x_box, y_box)
+        return (None, None)
+    
+    def is_game_over(self):
+        # Returns True if all the boxes have been revealed, otherwise False
+        for i in self.boxes_revealed:
+            if False in i:
+                return False 
+        return True
+    
+    def game_won (self):
+        coveredBoxes = self.generate_data_revealed_boxes(True)
+        color_1 = self.light_background_color
+        color_2 = self.background_color
+        for i in range(13):
+            color_1, color_2 = color_2, color_1 
+            self.screen.fill(color_1)
+            self.draw_board(coveredBoxes)
+            pygame.display.update()
+            pygame.time.wait(300)
        
     def main(self):
         pygame.init()
         self.screen.fill(self.background_color)
         self.start_game()
+        X_mouse  = 0 
+        Y_mouse = 0 
+        first_Selection = None
+
+        while True: 
+            mouse_Clicked = False
+            boxes_not_revealed = self.generate_data_revealed_boxes(False)
+            self.screen.fill(self.background_color) 
+            self.draw_board(boxes_not_revealed)
+    
+            X_mouse, Y_mouse, mouse_Clicked = self.mouse_coord_event()
+    
+            x_box, y_box = self.box_pixel(X_mouse, Y_mouse)
+            if x_box != None and y_box != None:
+                if not self.boxes_revealed[x_box][y_box]:
+                    self.draw_highlight_box(x_box, y_box)
+                if not self.boxes_revealed[x_box][y_box] and mouse_Clicked:
+                    self.reveal_boxes([(x_box, y_box)])
+                    self.boxes_revealed[x_box][y_box] = True 
+                    if first_Selection == None: 
+                        first_Selection = (x_box, y_box)
+                    else:
+                        icon1shape, icon1color = self.get_shape_color(first_Selection[0], first_Selection[1])
+                        icon2shape, icon2color = self.get_shape_color(x_box, y_box)
+    
+                        if icon1shape != icon2shape or icon1color != icon2color:
+                            pygame.time.wait(1000) 
+                            self.cover_boxes([(first_Selection[0], first_Selection[1]), (x_box, y_box)])
+                            self.boxes_revealed[first_Selection[0]][first_Selection[1]] = False
+                            self.boxes_revealed[x_box][y_box] = False
+                        elif self.is_game_over(): 
+                            self.game_won()
+                            pygame.time.wait(2000)
+                            return
+                           
+                        first_Selection = None 
+            pygame.display.update()
+            self.frame_speed_clock.tick(self.frame_speed)
+
+    def mouse_coord_event(self):
+        for event in pygame.event.get(): 
+            if event.type == QUIT or (event.type == KEYUP and event.key == K_ESCAPE):
+                pygame.quit()
+                sys.exit()
+            elif event.type == MOUSEMOTION:
+                X_mouse, Y_mouse = event.pos
+            elif event.type == MOUSEBUTTONUP:
+                X_mouse, Y_mouse = event.pos
+                mouse_Clicked = True
+        return X_mouse,Y_mouse,mouse_Clicked
         
 if __name__ == '__main__':
     game = MemoryGame()
