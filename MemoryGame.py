@@ -32,13 +32,16 @@ class MemoryGame:
         self.border_height = 4
         self.x_margin = int((self.window_width - (self.border_width * (self.box_size + self.gap_size))) / 2)
         self.y_margin = int((self.window_height - (self.border_height * (self.box_size + self.gap_size))) / 2)
-        self.background_color = (100, 100, 100)
-        self.light_background_color = (60, 60, 100)
-        self.box_color = (0, 255, 255)
+        self.background_color = (243, 207, 198)
+        self.dark_background_color = (248, 131, 121)
+        self.timer_color = (124, 51, 255)
+        self.box_color = (5, 209, 252)
         self.highlight_color = (255, 255, 0)
         self.screen = pygame.display.set_mode((self.window_width, self.window_height))
         pygame.display.set_caption('Memory Game')
+        self.font = pygame.font.SysFont(None, 36)
         self.clock = pygame.time.Clock()
+        self.start_time = 0
         self.board = RandomizedBoard(self.border_width, self.border_height).board
         self.boxes_revealed = self.generate_data_revealed_boxes(False)
 
@@ -123,6 +126,9 @@ class MemoryGame:
         self.reveal_boxes(boxes, 5)
         self.cover_boxes(boxes, 5)
 
+        # Initialize timer
+        self.start_time = pygame.time.get_ticks()
+
     # Converting to pixel coordinates to box coordinates
     def box_pixel(self, x, y):
         for x_box in range(self.border_width):
@@ -141,13 +147,20 @@ class MemoryGame:
         return True
     
     def game_won (self):
-        color_1 = self.light_background_color
+        color_1 = self.dark_background_color
         color_2 = self.background_color
+        # Calculate elapsed time
+        elapsed_time_in_ms = pygame.time.get_ticks() - self.start_time
+        elapsed_time = self.format_time(elapsed_time_in_ms) 
+        
         for i in range(13):
             color_1, color_2 = color_2, color_1 
             self.screen.fill(color_1)
             self.draw_board(self.boxes_revealed)
-            pygame.display.update()
+            # Render timer text
+            timer_text = self.font.render(elapsed_time, True, self.timer_color)
+            self.screen.blit(timer_text, (self.window_width // 2 - timer_text.get_width() // 2, 20))
+            pygame.display.flip()
             pygame.time.wait(300)
         self.boxes_revealed = self.generate_data_revealed_boxes(False)
 
@@ -174,9 +187,6 @@ class MemoryGame:
         Y_mouse = 0 
         first_Selection = None
 
-        # Initialize timer
-        start_time = pygame.time.get_ticks()
-        timer_color = (255, 255, 255) # White
         while True:    
             X_mouse, Y_mouse, mouse_Clicked = self.mouse_coord_event(X_mouse, Y_mouse)
             x_box, y_box = self.box_pixel(X_mouse, Y_mouse)
@@ -207,15 +217,14 @@ class MemoryGame:
                         first_Selection = None 
 
             # Calculate elapsed time
-            elapsed_time_in_ms = pygame.time.get_ticks() - start_time
+            elapsed_time_in_ms = pygame.time.get_ticks() - self.start_time
             elapsed_time = self.format_time(elapsed_time_in_ms) 
            
             self.screen.fill(self.background_color) 
             self.draw_board(self.boxes_revealed)  
 
             # Render timer text
-            font = pygame.font.SysFont(None, 36)
-            timer_text = font.render(elapsed_time, True, timer_color)
+            timer_text = self.font.render(elapsed_time, True, self.timer_color)
             self.screen.blit(timer_text, (self.window_width // 2 - timer_text.get_width() // 2, 20))
 
             pygame.display.flip()
