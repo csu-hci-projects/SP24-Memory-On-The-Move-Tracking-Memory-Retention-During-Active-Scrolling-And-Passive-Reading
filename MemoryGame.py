@@ -158,8 +158,8 @@ class MemoryGame:
             color_1, color_2 = color_2, color_1 
             self.screen.fill(color_1)
             self.draw_board(self.boxes_revealed)
-            # Render timer text
-            timer_text = self.font.render(elapsed_time, True, self.timer_color)
+            # Render timer and flips text
+            timer_text = self.font.render('Total Time : '+elapsed_time+'    Total Flips : '+str(self.n_flips), True, self.timer_color)
             self.screen.blit(timer_text, (self.window_width // 2 - timer_text.get_width() // 2, 20))
             pygame.display.flip()
             pygame.time.wait(300)
