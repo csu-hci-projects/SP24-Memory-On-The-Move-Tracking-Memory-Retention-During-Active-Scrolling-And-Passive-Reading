@@ -44,6 +44,7 @@ class MemoryGame:
         self.start_time = 0
         self.board = RandomizedBoard(self.border_width, self.border_height).board
         self.boxes_revealed = self.generate_data_revealed_boxes(False)
+        self.n_flips = 0
 
     def format_time(self, milliseconds):
         seconds = milliseconds // 1000
@@ -198,6 +199,7 @@ class MemoryGame:
                 if not self.boxes_revealed[x_box][y_box] and mouse_Clicked:
                     self.reveal_boxes([(x_box, y_box)], self.speed_reveal)
                     self.boxes_revealed[x_box][y_box] = True 
+                    self.n_flips += 1
                     if first_Selection == None: 
                         first_Selection = (x_box, y_box)
                     else:
@@ -223,8 +225,8 @@ class MemoryGame:
             self.screen.fill(self.background_color) 
             self.draw_board(self.boxes_revealed)  
 
-            # Render timer text
-            timer_text = self.font.render(elapsed_time, True, self.timer_color)
+            # Render timer and flips text
+            timer_text = self.font.render('Time : '+elapsed_time+'    Flips : '+str(self.n_flips), True, self.timer_color)
             self.screen.blit(timer_text, (self.window_width // 2 - timer_text.get_width() // 2, 20))
 
             pygame.display.flip()
