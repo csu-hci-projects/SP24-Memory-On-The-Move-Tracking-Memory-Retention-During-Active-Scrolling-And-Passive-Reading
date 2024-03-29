@@ -9,6 +9,10 @@
 
 Link to YouTube Video: [checkpoint 1](https://youtu.be/4rk888KqTgw) 
 
+**About:** 
+
+Our daily lives are increasingly filled with digital interactions, from scrolling through social media feeds to reading news articles online. Given the rise of constant digital consumption, a key question emerges: how does it affect our ability to remember information? This study seeks to explore this pressing question. The research builds upon existing knowledge about memory and digital engagement. Our research employs a comparative analysis between active scrolling and passive reading tasks, incorporating a memory game designed to assess memory performance under different conditions, including visual cues variation.
+
 **Distribution of Work**
 
 **Initial Planning and Research:**
@@ -35,7 +39,7 @@ Both authors contributed equally to writing the paper, encompassing:
 * Related Work
 * Methodology
 
-**Future Work Distribution (Planned)**
+**Future Work Distribution (Planned):**
 
 We intend to divide the remaining work equally across the following tasks:
 
@@ -43,3 +47,7 @@ We intend to divide the remaining work equally across the following tasks:
 2. Data Collection and Analysis
 3. Code Refactoring and Optimization
 4. Final Report Completion
+
+**Meeting Schedule:**
+
+Every Tuesday and Thursday in person from 10am to 11am. If needed on Fridays.
