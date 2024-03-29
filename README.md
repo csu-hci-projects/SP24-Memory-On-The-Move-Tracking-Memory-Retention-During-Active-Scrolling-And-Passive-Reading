@@ -1,1 +1,45 @@
-# SP24-Memory-On-The-Move-Tracking-Memory-Retention-During-Active-Scrolling-And-Passive-Reading
+**# SP24-Memory-On-The-Move: Tracking Memory Retention During Active Scrolling and Passive Reading**
+
+**Authors:**
+
+* Rajeshwari Deoraj
+* Jaya Veera Surendra Gupta Kurivella
+
+**Project Demonstration:**
+
+Link to YouTube Video: [checkpoint 1](https://youtu.be/4rk888KqTgw) 
+
+**Distribution of Work**
+
+**Initial Planning and Research:**
+
+Both authors collaboratively undertook the following tasks at the project's outset:
+
+* Literature review: Identified relevant research papers and gathered necessary information.
+* Project plan: Established the project roadmap, outlining tasks, timelines, and responsibilities.
+
+**Coding Responsibilities:**
+
+* Rajeshwari Deoraj:
+    * Game board design: Finalized shapes, colors, board dimensions, and icon dimensions.
+    * User interface: Implemented game layout and added a timer to the screen.
+* Jaya Veera Surendra Gupta Kurivella:
+    * Game mechanics: Developed animations for tile reveal/hide functionality based on mouse coordinates and events.
+    * User feedback: Added a flip counter to the screen.
+
+**Paper Writing:**
+
+Both authors contributed equally to writing the paper, encompassing:
+
+* Introduction
+* Related Work
+* Methodology
+
+**Future Work Distribution (Planned)**
+
+We intend to divide the remaining work equally across the following tasks:
+
+1. Participant Recruitment and Experiment Conduct
+2. Data Collection and Analysis
+3. Code Refactoring and Optimization
+4. Final Report Completion
