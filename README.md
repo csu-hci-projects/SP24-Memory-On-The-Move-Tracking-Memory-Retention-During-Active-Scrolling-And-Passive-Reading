@@ -7,8 +7,8 @@
 
 **Project Demonstration:**
 
-Link to YouTube Video (Project Overview): (https://www.youtube.com/watch?v=gUqvR3ISjnc)
-Link to YouTube Video (Demo and Code): (https://youtu.be/4rk888KqTgw) 
+* Link to YouTube Video (Project Overview): (https://www.youtube.com/watch?v=gUqvR3ISjnc)
+* Link to YouTube Video (Demo and Code): (https://youtu.be/4rk888KqTgw) 
 
 **About:** 
 
