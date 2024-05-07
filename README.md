@@ -7,7 +7,8 @@
 
 **Project Demonstration:**
 
-Link to YouTube Video: [checkpoint 1](https://youtu.be/4rk888KqTgw) 
+Link to YouTube Video (Project Overview): (https://www.youtube.com/watch?v=gUqvR3ISjnc)
+Link to YouTube Video (Demo and Code): (https://youtu.be/4rk888KqTgw) 
 
 **About:** 
 
@@ -38,15 +39,10 @@ Both authors contributed equally to writing the paper, encompassing:
 * Introduction
 * Related Work
 * Methodology
-
-**Future Work Distribution (Planned):**
-
-We intend to divide the remaining work equally across the following tasks:
-
-1. Participant Recruitment and Experiment Conduct
-2. Data Collection and Analysis
-3. Code Refactoring and Optimization
-4. Final Report Completion
+* Findings
+* Limitations
+* Future Work
+ 
 
 **Meeting Schedule:**
 
