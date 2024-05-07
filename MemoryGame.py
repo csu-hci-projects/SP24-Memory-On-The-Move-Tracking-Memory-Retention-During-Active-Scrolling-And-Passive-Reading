@@ -154,7 +154,7 @@ class MemoryGame:
         elapsed_time_in_ms = pygame.time.get_ticks() - self.start_time
         elapsed_time = self.format_time(elapsed_time_in_ms) 
         
-        for i in range(13):
+        for i in range(30):
             color_1, color_2 = color_2, color_1 
             self.screen.fill(color_1)
             self.draw_board(self.boxes_revealed)
