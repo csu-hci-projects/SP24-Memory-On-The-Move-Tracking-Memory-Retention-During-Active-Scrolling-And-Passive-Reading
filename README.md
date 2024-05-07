@@ -9,6 +9,7 @@
 
 * Link to YouTube Video (Project Overview): (https://www.youtube.com/watch?v=gUqvR3ISjnc)
 * Link to YouTube Video (Demo and Code): (https://youtu.be/4rk888KqTgw) 
+* Git Link: https://github.com/csu-hci-projects/SP24-Memory-On-The-Move-Tracking-Memory-Retention-During-Active-Scrolling-And-Passive-Reading
 
 **About:** 
 
@@ -31,6 +32,42 @@ Both authors collaboratively undertook the following tasks at the project's outs
 * Jaya Veera Surendra Gupta Kurivella:
     * Game mechanics: Developed animations for tile reveal/hide functionality based on mouse coordinates and events.
     * User feedback: Added a flip counter to the screen.
+
+## Pre-requisites:
+Before running this project, ensure you have the following pre-requisites installed on your local machine:
+ 
+1. **Python 3:** 
+   - If you don't have Python 3 installed, you can download and install it from the [official Python website](https://www.python.org/downloads/).
+ 
+2. **pip:**
+   - pip is a package manager for Python. It usually comes pre-installed with Python 3. However, if you don't have it, you can install it by following the instructions [here](https://pip.pypa.io/en/stable/installation/).
+ 
+3. **pygame library:**
+   - This project requires the pygame library. You can install it using the following pip command:
+     ```
+     pip install pygame
+     ```
+ 
+Once you have Python 3 and pip installed, and pygame library installed via pip, you're ready to run the project.
+
+## Running the Game:
+ 
+To compile and run the game, follow these steps:
+ 
+1. **Navigate to the Game Directory:**
+   - Open your terminal or command prompt and change directory to where the `MemoryGame.py` file is located.
+ 
+2. **Run the Game:**
+   - Once you're in the directory containing `MemoryGame.py`, use the following command to run the game:
+     ```
+     python MemoryGame.py
+     ```
+ 
+3. **Play the Game:**
+   - The game will start running, and you can now enjoy playing it!
+ 
+If you encounter any issues or errors during compilation or execution, please make sure you have followed the pre-requisites and installed the necessary dependencies mentioned in the README.
+
 
 **Paper Writing:**
 
